@@ -1,0 +1,118 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+// Define the User table for storing user information
+model User {
+  id        String     @id @default(cuid())
+  username  String     @unique
+  email     String     @unique
+  password  String
+  name      String
+  bio       String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  tweets    Tweet[]
+  comments  Comment[]
+  likes     Like[]
+  retweets  Retweet[]
+  bookmarks Bookmark[]
+  Profile   Profile[]
+  avatar    Media?     @relation(fields: [avatarId], references: [id])
+  avatarId  String?
+}
+
+model Profile {
+  id       String  @id @default(cuid())
+  author   User    @relation(fields: [authorId], references: [id])
+  authorId String
+  banner   Media?  @relation(fields: [bannerId], references: [id])
+  bannerId String?
+}
+
+// Define the Media table for storing media content
+model Media {
+  id        String    @id @default(cuid())
+  url       String
+  tweet     Tweet     @relation(fields: [tweetId], references: [id])
+  tweetId   String
+  comment   Comment   @relation(fields: [commentId], references: [id])
+  commentId String
+  User      User[]
+  Profile   Profile[]
+}
+
+// Define the Tweet table for storing tweets
+model Tweet {
+  id        String     @id @default(cuid())
+  content   String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  author    User       @relation(fields: [authorId], references: [id])
+  authorId  String
+  comments  Comment[]
+  likes     Like[]
+  retweets  Retweet[]
+  bookmarks Bookmark[]
+  hashtags  Hashtag[]  @relation("HashtagTweet")
+  Media     Media[]
+}
+
+// Define the Comment table for storing comments
+model Comment {
+  id        String   @id @default(cuid())
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  String
+  tweet     Tweet    @relation(fields: [tweetId], references: [id])
+  tweetId   String
+  likes     Like[]
+  Media     Media[]
+}
+
+// Define the Like table for storing likes
+model Like {
+  id        String   @id @default(cuid())
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  String
+  tweet     Tweet    @relation(fields: [tweetId], references: [id])
+  tweetId   String
+  comment   Comment? @relation(fields: [commentId], references: [id])
+  commentId String?
+}
+
+// Define the Retweet table for storing retweets
+model Retweet {
+  id       String @id @default(cuid())
+  tweet    Tweet  @relation(fields: [tweetId], references: [id])
+  tweetId  String
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId String
+}
+
+// Define the Bookmark table for storing bookmarks
+model Bookmark {
+  id       String @id @default(cuid())
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId String
+  tweet    Tweet  @relation(fields: [tweetId], references: [id])
+  tweetId  String
+}
+
+// Define the Hashtag table for storing hashtags
+model Hashtag {
+  id     String  @id @default(cuid())
+  name   String  @unique
+  tweets Tweet[] @relation("HashtagTweet")
+}
