@@ -19,19 +19,13 @@ const config: Config = {
         5: "-0.56px",
       },
       fontSize: {
-        xs: "24px",
-        sm: "18px",
+        xl: "24px",
+        lg: "18px",
         base: "16px",
-        lg: "14px",
-        xl: "12px",
+        sm: "14px",
+        xs: "12px",
       },
       colors: {
-        black: {
-          DEAFULT: "#000000",
-        },
-        white: {
-          DEFAULT: "#FFFFFF",
-        },
         gray: {
           100: "#333333",
           200: "#4F4F4F",
