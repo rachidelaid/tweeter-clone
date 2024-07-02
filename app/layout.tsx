@@ -15,9 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="min-h-screen flex flex-col">
         <AuthProvider>{children}</AuthProvider>
-        <footer className="flex justify-center items-center text-gray-300 text-xs p-4 py-5">
+        <footer className="flex justify-center items-center text-gray-300 text-xs p-4 py-5 mt-auto">
           <p>tweet clone create by @rachidelaid</p>
         </footer>
       </body>

@@ -54,15 +54,27 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token }) {
-      return token;
-    },
+    // async jwt({ token, user, session }) {
+    //   console.log("user ===> ", user);
+    //   console.log("session from jwt ===> ", session);
+    //   if (user) {
+    //     token.id = user.id;
+    //     token.name = user.name;
+    //     token.email = user.email;
+    //     token.image = user.image;
+    //     token.username = user.username;
+    //     token.bio = user.bio;
+    //   }
+
+    //   return token;
+    // },
     async session({ session, token }) {
       return {
         ...session,
         user: {
           ...session.user,
           id: token.sub,
+          username: token.username,
         },
       };
     },

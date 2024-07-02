@@ -1,4 +1,6 @@
-export const LogoutIcon = (props: any) => (
+import clsx from "clsx";
+
+const LogoutIcon = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -18,7 +20,7 @@ export const LogoutIcon = (props: any) => (
   </svg>
 );
 
-export const GroupIcon = (props: any) => (
+const GroupIcon = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -41,7 +43,7 @@ export const GroupIcon = (props: any) => (
   </svg>
 );
 
-export const GearIcon = (props: any) => (
+const GearIcon = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -60,7 +62,7 @@ export const GearIcon = (props: any) => (
   </svg>
 );
 
-export const ProfileIcon = (props: any) => (
+const ProfileIcon = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -80,7 +82,7 @@ export const ProfileIcon = (props: any) => (
   </svg>
 );
 
-export const BookmarkIcon = (props: any) => (
+const BookmarkIcon = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -98,7 +100,7 @@ export const BookmarkIcon = (props: any) => (
   </svg>
 );
 
-export const HeartIcon = (props: any) => (
+const HeartIcon = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}
@@ -116,7 +118,7 @@ export const HeartIcon = (props: any) => (
   </svg>
 );
 
-export const RetweetIcon = (props: any) => (
+const RetweetIcon = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}
@@ -135,7 +137,7 @@ export const RetweetIcon = (props: any) => (
   </svg>
 );
 
-export const CommentIcon = (props: any) => (
+const CommentIcon = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}
@@ -155,7 +157,7 @@ export const CommentIcon = (props: any) => (
   </svg>
 );
 
-export const ImageIcon = (props: any) => (
+const ImageIcon = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}
@@ -176,7 +178,7 @@ export const ImageIcon = (props: any) => (
   </svg>
 );
 
-export const CloseIcon = (props: any) => (
+const CloseIcon = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}
@@ -195,7 +197,7 @@ export const CloseIcon = (props: any) => (
   </svg>
 );
 
-export const FollowIcon = (props: any) => (
+const FollowIcon = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}
@@ -216,7 +218,7 @@ export const FollowIcon = (props: any) => (
   </svg>
 );
 
-export const SearchIcon = (props: any) => (
+const SearchIcon = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}
@@ -235,7 +237,7 @@ export const SearchIcon = (props: any) => (
   </svg>
 );
 
-export const ChevronDownIcon = (props: any) => (
+const ChevronDownIcon = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}
@@ -253,7 +255,7 @@ export const ChevronDownIcon = (props: any) => (
   </svg>
 );
 
-export const ChevronUpIcon = (props: any) => (
+const ChevronUpIcon = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}
@@ -270,3 +272,91 @@ export const ChevronUpIcon = (props: any) => (
     <path d="M6 15l6 -6l6 6" />
   </svg>
 );
+
+const TrashIcon = (props: any) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={24}
+    height={24}
+    viewBox="0 0 24 24"
+    strokeWidth={2}
+    stroke="currentColor"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M4 7l16 0"></path>
+    <path d="M10 11l0 6"></path>
+    <path d="M14 11l0 6"></path>
+    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+  </svg>
+);
+
+const Dot = ({ className = "" }) => (
+  <span className={clsx("w-1 h-1 bg-current rounded-full", className)} />
+);
+
+const SendIcon = (props: any) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={24}
+    height={24}
+    viewBox="0 0 24 24"
+    strokeWidth={2}
+    stroke="currentColor"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M10 14l11 -11"></path>
+    <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5"></path>
+  </svg>
+);
+
+const WorldIcon = (props: any) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={24}
+    height={24}
+    viewBox="0 0 24 24"
+    strokeWidth={2}
+    stroke="currentColor"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path>
+    <path d="M3.6 9h16.8"></path>
+    <path d="M3.6 15h16.8"></path>
+    <path d="M11.5 3a17 17 0 0 0 0 18"></path>
+    <path d="M12.5 3a17 17 0 0 1 0 18"></path>
+  </svg>
+);
+
+export {
+  SendIcon,
+  LogoutIcon,
+  GroupIcon,
+  GearIcon,
+  ProfileIcon,
+  BookmarkIcon,
+  HeartIcon,
+  RetweetIcon,
+  CommentIcon,
+  ImageIcon,
+  CloseIcon,
+  FollowIcon,
+  SearchIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+  Dot,
+  TrashIcon,
+  WorldIcon,
+};

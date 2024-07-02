@@ -1,5 +1,6 @@
 import React from "react";
 import { clsx } from "clsx";
+import LoadingLayer from "./LoadingLayer";
 
 //interface extends from the button element
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -30,16 +31,7 @@ export const Button = ({
     )}
     {...props}
   >
-    {isLoading && (
-      <div
-        className={clsx(
-          "absolute inset-0 flex justify-center items-center",
-          variants[variant]
-        )}
-      >
-        <span className="loader"></span>
-      </div>
-    )}
+    {isLoading && <LoadingLayer variant={variant} />}
     {children}
   </button>
 );

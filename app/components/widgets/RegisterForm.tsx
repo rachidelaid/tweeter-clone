@@ -50,7 +50,6 @@ const RegisterForm = ({ csrfToken }: { csrfToken?: string }) => {
       });
 
       const json = await resp.json();
-      console.log(json);
 
       if (json.error) {
         setBigError(

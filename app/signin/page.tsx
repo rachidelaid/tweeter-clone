@@ -6,7 +6,7 @@ const SignInPage = async () => {
   const csrfToken = await getCsrfToken();
 
   return (
-    <div className="flex flex-col h-screen w-screen justify-center items-center">
+    <div className="flex flex-col h-screen w-screen justify-center items-center px-4">
       <LoginForm csrfToken={csrfToken} />
       <p className="mt-2 text-xs text-gray-300">
         you don&apos;t have an account ?{" "}

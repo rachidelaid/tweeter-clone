@@ -14,22 +14,36 @@ datasource db {
 
 // Define the User table for storing user information
 model User {
-  id        String     @id @default(cuid())
-  username  String     @unique
-  email     String     @unique
+  id        String      @id @default(cuid())
+  username  String      @unique
+  email     String      @unique
   password  String
   name      String
   bio       String?
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
   tweets    Tweet[]
   comments  Comment[]
   likes     Like[]
   retweets  Retweet[]
   bookmarks Bookmark[]
   Profile   Profile[]
-  avatar    Media?     @relation(fields: [avatarId], references: [id])
+  avatar    Media?      @relation(fields: [avatarId], references: [id])
   avatarId  String?
+  Followers Followers[]
+  Following Following[]
+}
+
+model Followers {
+  id         String @id @default(cuid())
+  follower   User   @relation(fields: [followerId], references: [id])
+  followerId String
+}
+
+model Following {
+  id          String @id @default(cuid())
+  following   User   @relation(fields: [followingId], references: [id])
+  followingId String
 }
 
 model Profile {
@@ -55,6 +69,7 @@ model Media {
 // Define the Tweet table for storing tweets
 model Tweet {
   id        String     @id @default(cuid())
+  privite   Boolean    @default(false)
   content   String
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
@@ -87,8 +102,8 @@ model Like {
   id        String   @id @default(cuid())
   author    User     @relation(fields: [authorId], references: [id])
   authorId  String
-  tweet     Tweet    @relation(fields: [tweetId], references: [id])
-  tweetId   String
+  tweet     Tweet?   @relation(fields: [tweetId], references: [id])
+  tweetId   String?
   comment   Comment? @relation(fields: [commentId], references: [id])
   commentId String?
 }

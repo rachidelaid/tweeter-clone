@@ -2,7 +2,7 @@
 import clsx from "clsx";
 import { forwardRef } from "react";
 
-interface InputProps {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: string;
   type?: string;
   placeholder?: string;

@@ -18,12 +18,17 @@ export const Avatar = ({
     <div
       className={clsx(
         "relative overflow-hidden",
-        size === "sm" ? "w-8 h-8" : size === "md" ? "w-10 h-10" : "w-32 h-32",
-        size === "sm" ? "rounded" : "rounded-md",
+        size === "sm" ? "rounded" : size === "md" ? "rounded-md" : "rounded-lg",
         className
       )}
+      style={{
+        width: size === "sm" ? "2rem" : size === "md" ? "2.5rem" : "8rem",
+        minWidth: size === "sm" ? "2rem" : size === "md" ? "2.5rem" : "8rem",
+        height: size === "sm" ? "2rem" : size === "md" ? "2.5rem" : "8rem",
+        minHeight: size === "sm" ? "2rem" : size === "md" ? "2.5rem" : "8rem",
+      }}
     >
-      <Image src={src} alt={alt} layout="fill" />
+      <Image src={src} alt={alt} fill objectFit="cover" layout="fill" />
     </div>
   );
 };

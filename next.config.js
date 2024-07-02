@@ -5,6 +5,7 @@ const nextConfig = {
       "pbs.twimg.com",
       "www.imagelighteditor.com",
       "res.cloudinary.com",
+      "images.unsplash.com",
     ],
   },
 };

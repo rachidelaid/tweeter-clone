@@ -1,0 +1,13 @@
+diff --git a/node_modules/next-auth/client/_utils.js b/node_modules/next-auth/client/_utils.js
+index de4e3c4..f6a7049 100644
+--- a/node_modules/next-auth/client/_utils.js
++++ b/node_modules/next-auth/client/_utils.js
+@@ -55,6 +55,8 @@ function _fetchData() {
+             if (req !== null && req !== void 0 && req.body) {
+               options.body = JSON.stringify(req.body);
+               options.method = "POST";
++            } else {
++              delete options.headers["Content-Type"];
+             }
+ 
+             _context.next = 7;
